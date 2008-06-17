@@ -1,0 +1,27 @@
+= Appjour
+
+Publish your app in the ether using Bonjour.
+
+== Installation
+
+  sudo gem install dnssd
+  sudo gem install lachie-appjour --source=http://gems.github.com
+  
+== Usage
+
+  rincewind$ appjour leet_merb 4000
+  Publishing leet_merb on 4000
+  Announcing leet_merb...
+  
+  death$ appjour leet_merb
+  # ... leet_merb pops up in web browser ...
+  
+  death$ appjour
+  Searching for servers (3 seconds)
+  found web app called 'leet_merb'
+  
+  # use the username if only the port is specified
+  rincewind$ appjour 4001
+  Publishing lachie on 4001
+  Announcing lachie...
+  
