@@ -37,6 +37,15 @@ namespace :gem do
         f.puts(appjour_gemspec.to_ruby)
       end
     end
+    
+    desc "test spec in github cleanroom"
+    task :test do
+      require 'rubygems/specification'
+      data = File.read('appjour.gemspec')
+      spec = nil
+      Thread.new { spec = eval("$SAFE = 3\n#{data}") }.join
+      puts spec
+    end
   end
 end
 

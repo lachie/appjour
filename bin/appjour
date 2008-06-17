@@ -1,13 +1,11 @@
 #!/usr/bin/env ruby
 
-$:.unshift File.dirname(__FILE__)+"/../lib"
+# $:.unshift File.dirname(__FILE__)+"/../lib"
+
 require "rubygems"
 require "appjour"
 
 
-# list    = ARGV.delete("-l")
-# publish = ARGV.delete("-p")
-# open    = ARGV.delete("-o")
 help    = ARGV.delete("-h")
 
 
@@ -25,9 +23,10 @@ end
 
 if help
   puts <<-EOH
-  appjour -l                  look for apps
-  appjour -p [NAME]           open the app called
-  appjour -p [NAME] [PORT]    publish your app
+  appjour                  look for apps
+  appjour [NAME]           open the app NAME
+  appjour [NAME] [PORT]    publish your app as NAME on PORT
+  appjour [PORT]           publish your app as $USER on PORT
 
   EOH
 elsif name && port
