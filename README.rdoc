@@ -25,6 +25,16 @@ Publish your app in the ether using Bonjour.
   Publishing lachie on 4001
   Announcing lachie...
   
+== Port guessing
+
+In the initialization phase of your app put:
+
+  Appjour.publish('leet rails')
+  
+Appjour will endeavour to extract the port number from your app.
+
+It can currently discover mongrel's port.
+
 == TODO
 
 * make useable as Rails or Merb plugin for automatic publishing of apps

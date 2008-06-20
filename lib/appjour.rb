@@ -64,8 +64,10 @@ module Appjour
   def self.publish(name,port=:guess)
     STDERR.puts "Publishing #{name} on #{port}"
     
+    should_sleep = true
     if port.is_a?(Symbol)
       port = guess_port(port)
+      should_sleep = false
     else
       port = port.to_i
     end
@@ -77,10 +79,19 @@ module Appjour
       STDERR.puts "Announcing #{name}..."
     end
     
-    sleep
+    sleep if should_sleep
   end
   
   def self.guess_port(kind)
+    
+    # guess mongrel
+    if defined?(Mongrel)
+      ObjectSpace.each_object do |o|
+        return o.port if o.is_a?(Mongrel::HttpServer)
+      end
+    end
+    
+    
     case kind
     when :mongrel
     end
