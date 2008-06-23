@@ -61,10 +61,9 @@ module Appjour
   # TODO
   # divine app port numbers 
   # mongrel: http://www.caboo.se/articles/2006/11/14/configure-mongrel-rails-logger-per-port
-  def self.publish(name,port=:guess)
+  def self.publish(name,port=:guess,should_sleep=true)
     STDERR.puts "Publishing #{name} on #{port}"
     
-    should_sleep = true
     if port.is_a?(Symbol)
       port = guess_port(port)
       should_sleep = false
