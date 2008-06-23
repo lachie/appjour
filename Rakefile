@@ -50,7 +50,7 @@ namespace :gem do
 end
 
 task :install => :package do
-  sh %{sudo gem install pkg/appjour-#{Appjour::VERSION}}
+  sh %{sudo gem install --local pkg/appjour-#{Appjour::VERSION}}
 end
 
 desc "Run all specs"
